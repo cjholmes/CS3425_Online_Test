@@ -1,40 +1,46 @@
 CREATE TABLE users (
   username VARCHAR(30) PRIMARY KEY,
   password VARCHAR(30),
-  name VARCHAR(50),
   teacher BOOLEAN
 );
 
-CREATE TABLE grades(
-  username VARCHAR(30),
-  grade INT,
-  test INT,
-  FOREIGN KEY (username) REFERENCES users(username),
-  FOREIGN KEY (test) REFERENCES tests(id)
+CREATE TABLE student (
+  username VARCHAR(30) PRIMARY KEY,
+  id INT,
+  name VARCHAR(50),
+  major VARCHAR(50),
+  FOREIGN KEY (username) REFERENCES users(username)
 );
 
-CREATE TABLE tests (
-  admin VARCHAR(30),
+CREATE TABLE grades(
+  username VARCHAR(30) PRIMARY KEY,
+  exam INT,
+  grade DOUBLE,
+  correct INT,
+  FOREIGN KEY (username) REFERENCES users(username),
+  FOREIGN KEY (exam) REFERENCES exams(id)
+);
+
+CREATE TABLE exams (
   id INT PRIMARY KEY,
   name VARCHAR(30),
-  type VARCHAR(4),
-  total INT,
-  FOREIGN KEY (admin) REFERENCES users(username)
+  total INT
 );
 
 CREATE TABLE questions (
-  quiz INT,
   id INT PRIMARY KEY,
+  exam INT,
   question VARCHAR(144),
   num_options INT,
   value INT,
-  FOREIGN KEY (quiz) REFERENCES tests(id)
+  FOREIGN KEY (exam) REFERENCES exams(id)
 );
 
 CREATE TABLE options (
   id INT PRIMARY KEY,
+  question INT,
   text VARCHAR(144),
-  right BOOLEAN,
-  FOREIGN KEY (id) REFERENCES questions(id)
+  correct BOOLEAN,
+  FOREIGN KEY (question) REFERENCES questions(id)
 );
 
