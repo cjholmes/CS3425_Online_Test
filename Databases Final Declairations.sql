@@ -31,7 +31,7 @@ CREATE TABLE exams (
 CREATE TABLE questions (
   questionnumber INT,
   examname VARCHAR(30) REFERENCES exams(name),
-  question VARCHAR(511),
+  question TEXT,
   num_options INT,
   pointVal INT
 );
@@ -40,7 +40,7 @@ CREATE TABLE options (
   id INT PRIMARY KEY AUTO_INCREMENT,
   examname VARCHAR(30) NOT NULL REFERENCES exams(name),
   questionnum INT NOT NULL REFERENCES questions(questionnumber),
-  text VARCHAR(144),
+  text TEXT,
   correct BOOLEAN
 );
 
