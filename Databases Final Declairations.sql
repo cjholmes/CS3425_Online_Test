@@ -57,12 +57,12 @@ CREATE PROCEDURE newExam (IN title VARCHAR(30), IN totalPoints INT)
   END;
 
 CREATE PROCEDURE newQuestion(IN examName VARCHAR(30), IN questionNum INT,
-  IN questionText VARCHAR(511), IN numOptions INT, IN qval INT)
+  IN questionText TEXT, IN numOptions INT, IN qval INT)
   BEGIN
     INSERT INTO questions VALUES (questionNum, examName, questionText, numOptions, qval);
   END;
 
-CREATE PROCEDURE newOption(IN examName VARCHAR(30), IN questionNum INT, IN oText VARCHAR(144),
+CREATE PROCEDURE newOption(IN examName VARCHAR(30), IN questionNum INT, IN oText TEXT,
   IN cor INT)
   BEGIN
     INSERT INTO options(examname, questionnum, text, correct) VALUES (examName, questionNum,
