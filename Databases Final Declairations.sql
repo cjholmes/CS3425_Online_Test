@@ -54,17 +54,17 @@ CREATE PROCEDURE newStudent(IN usern VARCHAR(30), IN pass VARCHAR(30),
 CREATE PROCEDURE newExam (IN title VARCHAR(30), IN totalPoints INT)
   BEGIN
     INSERT INTO exams(name, total) VALUES (title, totalPoints);
-  END;
+  END//
 
 CREATE PROCEDURE newQuestion(IN examName VARCHAR(30), IN questionNum INT,
   IN questionText TEXT, IN numOptions INT, IN qval INT)
   BEGIN
     INSERT INTO questions VALUES (questionNum, examName, questionText, numOptions, qval);
-  END;
+  END//
 
 CREATE PROCEDURE newOption(IN examName VARCHAR(30), IN questionNum INT, IN oText TEXT,
   IN cor INT)
   BEGIN
     INSERT INTO options(examname, questionnum, text, correct) VALUES (examName, questionNum,
     oText, cor);
-  END;
+  END//
