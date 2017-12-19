@@ -17,6 +17,7 @@ CREATE TABLE grades(
   exam INT,
   grade DOUBLE,
   correct INT,
+  data TEXT,
   FOREIGN KEY (username) REFERENCES users(username),
   FOREIGN KEY (exam) REFERENCES exams(id)
 );
