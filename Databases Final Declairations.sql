@@ -13,7 +13,7 @@ CREATE TABLE student (
 );
 
 CREATE TABLE grades(
-  username VARCHAR(30) PRIMARY KEY,
+  username VARCHAR(30),
   exam INT,
   grade DOUBLE,
   correct INT,
