@@ -1,6 +1,6 @@
 CREATE TABLE users (
   username VARCHAR(30) PRIMARY KEY,
-  password VARCHAR(30),
+  password VARCHAR(64),
   teacher BOOLEAN
 );
 
@@ -44,7 +44,7 @@ CREATE TABLE options (
   correct BOOLEAN
 );
 
-CREATE PROCEDURE newStudent(IN usern VARCHAR(30), IN pass VARCHAR(30),
+CREATE PROCEDURE newStudent(IN usern VARCHAR(30), IN pass VARCHAR(64),
   IN idnum INT, IN nam VARCHAR(50), IN maj VARCHAR(50))
   BEGIN
       INSERT INTO users VALUE (usern, pass, FALSE );
